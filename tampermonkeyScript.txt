@@ -1,0 +1,23 @@
+// ==UserScript==
+// @name         Discord api redirect
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        *://*/*
+// @include      http://discord.com/api/v9/channels/<CHANNEL ID>*
+// @include      *//localhost:8000/api/v9/channels/<CHANNEL ID>*
+// @grant        GM_webRequest
+// ==/UserScript==
+
+//CHANGE "<CHANNEL ID>" to the channel ID of the group chat you want to intercept api calls for
+
+var currently_active_webrequest_rule = JSON.stringify(GM_info.script.webRequest); // == @webRequst header from above
+
+GM_webRequest([
+    //{ selector: '*cancel.me/*', action: 'cancel' },
+    //{ selector: { include: '*', exclude: 'http://exclude.me/*' }, action: { redirect: 'http://localhost:8000/api' } },
+    { selector: { match: '*://discord.com/api/v9/channels/<CHANNEL ID>/*' }, action: { redirect: { from: 'https://discord.com/api/v9/channels/<CHANNEL ID>/(.*)',  to: 'http://localhost:8000/api/v9/channels/<CHANNEL ID>/$1' } } }
+], function(info, message, details) {
+    console.log(info, message, details);
+});
