@@ -38,11 +38,16 @@ Windows: **WARNING: THE WEBSOCKET LIBRARY CURRENTLY DOES NOT WORK ON WINDOWS, A 
   **notice: you will have to follow the steps below every time**
   Open cmd in the current directory, and type `set FLASK_APP=flask_server.py`. Run it, then run `python3 -m flask run --host=localhost --port=8000`. This will set up your flask server.
   Open up a new cmd window, and type `python3 wsServer.py`. It should stay empty, until you visit discord.com, where you will see data being sent around.
+  
 Linux: There are two options. Autosockets.py, or the manual method, which differs from the Windows Manual Method.
+  
   **Autosockets**:
+  
     Download the latest `autosockets.py` from the releases page, and place it in its separate directory. **Make sure you have `wget` installed**
     Next, run `sudo python3 autosockets.py`. Because this relies on websockets, Linux requires root to allow this port to be passed through. You should see a bunch of files being downloaded, dependencies being installed(**Make sure you have pip3 installed!**), and it ending with how to kill the server. You should be able to open discord.com, and connect. Nothing will appear yet, as this is still in alpha, but it means you have successfully got Shidcord to run on your device!
+  
    **Manual**:
+  
     Download the main branch of this repo, then extract the zip. Make sure you have pip3 installed, then open cmd and type: `sudo pip3 install simple-websocket-server websocket-client` You will have all required files in order to start your server. 
   **notice: you will have to follow the steps below every time**
   Open terminal in the current directory, and type `export FLASK_APP=flask_server.py`. Run it, then run `python3 -m flask run --host=localhost --port=8000`. This will set up your flask server.
