@@ -11,30 +11,7 @@ It is in very early stages of development, so join the [discord](https://discord
 
 ## Browser Setup
 To get started, install the [TamperMonkey](https://www.tampermonkey.net) extension, as well as [Allow CORS](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf) and [Always Disable CSP](https://chrome.google.com/webstore/detail/always-disable-content-se/ffelghdomoehpceihalcnbmnodohkibj). These extensions are required to allow the script software to run.
-Go to TamperMonkey, create a new script, and paste the following code:
-`// ==UserScript==
-// @name         Discord api redirect
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        *://*/*
-// @include      http://discord.com/api/v9/channels/<CHANNEL ID>*
-// @include      *//localhost:8000/api/v9/channels/<CHANNEL ID>*
-// @grant        GM_webRequest
-// ==/UserScript==
-
-//CHANGE "<CHANNEL ID>" to the channel ID of the group chat you want to intercept api calls for
-
-var currently_active_webrequest_rule = JSON.stringify(GM_info.script.webRequest); // == @webRequst header from above
-
-GM_webRequest([
-    //{ selector: '*cancel.me/*', action: 'cancel' },
-    //{ selector: { include: '*', exclude: 'http://exclude.me/*' }, action: { redirect: 'http://localhost:8000/api' } },
-    { selector: { match: '*://discord.com/api/v9/channels/<CHANNEL ID>/*' }, action: { redirect: { from: 'https://discord.com/api/v9/channels/<CHANNEL ID>/(.*)',  to: 'http://localhost:8000/api/v9/channels/<CHANNEL ID>/$1' } } }
-], function(info, message, details) {
-    console.log(info, message, details);
-});`
+Go to TamperMonkey, create a new script, and paste the code found in tampermonkeyScript.txt
 Alpha-3 note: you will have to change the <channel id> to the dev id of the chat you will intercept. Go to Discord, and enable developer mode. Then right-click on a channel(a private server where no one has joined is preferred), and select copy ID. Paste the ID into the places that say <Channel ID>, and make sure to fully replace that text with the ID.
   
 Next, you set up the server to allow api calls from localhost.
