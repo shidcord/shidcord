@@ -33,7 +33,7 @@ On firefox and equivalent:
   You are ready for Setup: Part 2
 
 ## Websockets Setup
-Windows: **WARNING: THE WEBSOCKET LIBRARY CURRENTLY DOES NOT WORK ON WINDOWS, A FIX WILL SOON COME. As a result, the autosockets script has not been developed for alpha-3 yet, but for the purpose of theory, the steps to get it running are down below.**
+Windows: **WARNING: THE WEBSOCKET LIBRARY CURRENTLY DOES NOT WORK ON WINDOWS, A FIX WILL SOON COME. --As a result, the autosockets script has not been developed for alpha-3 yet, but for the purpose of theory, the steps to get it running are down below.-- The autosockets script is now functional for windows, but will not run the server successfully. You can follow the autosockets steps for Linux, omitting sudo from the command.**
   Download the main branch of this repo, then extract the zip. Make sure you have pip3 installed, then open cmd and type: `pip3 install simple-websocket-server websocket-client` You will have all required files in order to start your server. 
   **notice: you will have to follow the steps below every time**
   Open cmd in the current directory, and type `set FLASK_APP=flask_server.py`. Run it, then run `python3 -m flask run --host=localhost --port=8000`. This will set up your flask server.
@@ -55,7 +55,7 @@ Linux: There are two options. Autosockets.py, or the manual method, which differ
   
   
 ## Disclaimers and Bugs
-  All dependencies for this program: python3, pip3, wget(for linux), a browser based on Chrome or Firefox, sudo(for linux)
+  All dependencies for this program: python3, pip3, a browser based on Chrome or Firefox, sudo(for linux)
   This still needs an encryption algorithim, that is being worked on.
   The real functionality of this program is still being worked on. If you are a brave soul, the program is up to uncomment and change values.
   If you would like to support development, JOIN THE [DISCORD SERVER](https://discord.gg/YZW6tZBJ2k)
